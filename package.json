@@ -8,12 +8,14 @@
   "repository": "google/material-design-lite",
   "devDependencies": {
     "apache-server-configs": "^2.7.1",
+    "babel": "^5.6.14",
     "browser-sync": "^2.2.3",
     "chai": "^2.0.0",
     "chai-jquery": "^2.0.0",
     "del": "^1.1.1",
     "gulp": "^3.8.11",
     "gulp-autoprefixer": "^2.0.0",
+    "gulp-babel": "^5.1.0",
     "gulp-cache": "^0.2.6",
     "gulp-changed": "^1.0.0",
     "gulp-concat": "^2.4.1",
@@ -53,12 +55,12 @@
     "mocha": "^2.1.0",
     "napa": "^1.2.0",
     "opn": "^1.0.0",
+    "prismjs": "0.0.1",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.0.2",
+    "swfobject-npm": "^2.3.0-1",
     "swig": "^1.4.2",
-    "through2": "^0.6.3",
-    "prismjs": "0.0.1",
-    "swfobject-npm": "^2.3.0-1"
+    "through2": "^0.6.3"
   },
   "engines": {
     "node": ">=0.10.0"

@@ -46,6 +46,7 @@ var banner = ['/**',
   ' * @link https://github.com/google/material-design-lite',
   ' */',
   ''].join('\n');
+var babel = require("gulp-babel");
 
 var AUTOPREFIXER_BROWSERS = [
   'ie >= 10',
@@ -710,4 +711,14 @@ gulp.task('styles:gen', ['styles'], function() {
     });
   });
   stream.pipe(gulp.dest('dist'));
+});
+
+// JSX
+gulp.task("jsx", function () {  
+  return gulp.src(["jsx/**/*.jsx"])
+    .pipe($.sourcemaps.init())
+    .pipe($.concat("react-material.js"))
+    .pipe(babel())
+    .pipe($.sourcemaps.write("."))
+    .pipe(gulp.dest("dist"));
 });
