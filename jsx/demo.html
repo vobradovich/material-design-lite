@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>React Material Design Lite Demo</title>
+
+        <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Page styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.css">
+    <link rel="stylesheet" href="../dist/material.min.css">
+    <link rel="stylesheet" href="../dist/components/demos.css">
+    <script src="https://fb.me/react-with-addons-0.13.3.js"></script>
+    <script src="../node_modules/gulp-babel/node_modules/babel-core/browser-polyfill.js"></script>
+    <script src="../dist/material.js"></script>
+    <script src="../dist/react-material.js"></script>
+    
+    <style>
+    .mdl-cell {
+      background-color: #eee;
+    }
+    </style>
+
+  </head>
+  <body>
+
+    <h3>Buttons <code>.mdl-button .mdl-js-button</code></h3>
+    <div style="padding-top: 24px;" id="Button"></div>
+    <div style="padding-top: 24px;" id="ButtonRaised"></div>
+    <div style="padding-top: 24px;" id="ButtonFab"></div>
+    <div style="padding-top: 24px;" id="Checkbox"></div>
+
+    <h3>Cards <code>.mdl-card</code></h3>
+    <div style="padding-top: 24px;" id="Card"></div>
+    <div style="padding-top: 24px;" id="Card2"></div>
+
+    <h3>Grid <code>.mdl-grid</code></h3>
+    <div style="padding-top: 24px;" id="Grid"></div>
+
+    <h3>Tabs <code>.mdl-tabs</code></h3>
+    <div style="padding-top: 24px;" id="Tabs"></div>
+
+    <h3>Spinner <code>.mdl-spinner</code></h3>
+    <div style="padding-top: 24px;" id="Spinner"></div>
+
+    <h3>Table <code>.mdl-spinner</code></h3>
+    <div style="padding-top: 24px;" id="Table"></div>
+
+    <!-- Built with love using Material Design Lite -->
+    
+    <script>
+      var Button = React.createFactory(MaterialButton);
+      React.render(
+        React.DOM.div({},
+          Button({ }, "Button"),
+          Button({ disabled: true }, "Button"),
+          Button({ ripple: true }, "Button"),
+          Button({ colored: true }, "Button"),
+          Button({ accent: true }, "Button")
+        ), document.getElementById("Button")
+      );
+
+      React.render(
+        React.DOM.div({},
+          Button({ raised: true }, "Button"),
+          Button({ raised: true, disabled: true }, "Button"),
+          Button({ raised: true, ripple: true }, "Button"),
+          Button({ raised: true, colored: true }, "Button"),
+          Button({ raised: true, accent: true }, "Button")
+        ), document.getElementById("ButtonRaised")
+      );
+
+      React.render(
+        React.DOM.div({},
+          Button({ fab: true }, React.DOM.i({ className: "material-icons" }, "add")),
+          Button({ fab: true, disabled: true }, React.DOM.i({ className: "material-icons" }, "add")),
+          Button({ fab: true, ripple: true }, React.DOM.i({ className: "material-icons" }, "add")),
+          Button({ fab: true, colored: true }, React.DOM.i({ className: "material-icons" }, "add")),
+          Button({ fab: true, accent: true }, React.DOM.i({ className: "material-icons" }, "add"))
+        ), document.getElementById("ButtonFab")
+      );
+
+      var Checkbox = React.createFactory(MaterialCheckBox);
+      React.render(
+        React.DOM.div({},
+          Checkbox({ ripple: true, id: "Checkbox-1" }, "Checkbox")
+        ), document.getElementById("Checkbox")
+      );
+
+      var Card = React.createFactory(MaterialCard);
+      var CardTitle = React.createFactory(MaterialCardTitle);
+      var CardTitleText = React.createFactory(MaterialCardTitleText);
+      var CardSupportingText = React.createFactory(MaterialCardSupportingText);
+      var CardActions = React.createFactory(MaterialCardActions);
+      React.render(
+        React.DOM.div({},
+          Card({ },
+            CardTitle({},
+              CardTitleText({}, "Welcome")
+            ),
+            CardSupportingText({}, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis pellentesque lacus eleifend lacinia..."),
+            CardActions({ border: true },
+              Button({ colored: true }, "Button")
+            )
+          )
+        ), document.getElementById("Card")
+      );
+
+      React.render(
+        React.DOM.div({},
+          Card({ },
+            CardTitle({ expand: true},
+              React.DOM.h4({}, "Featured event: May 24, 2016, 7-11pm" )
+            ),
+            CardActions({ border: true },
+              Button({ colored: true }, "Button")
+            )
+          )
+        ), document.getElementById("Card2")
+      );
+
+      var Grid = React.createFactory(MaterialGrid);
+      var GridCell = React.createFactory(MaterialGridCell);
+
+      React.render(
+        React.DOM.div({},
+          Grid({},
+            GridCell({ col: 1 }, "1"),
+            GridCell({ col: 1 }, "2"),
+            GridCell({ col: 1 }, "3"),
+            GridCell({ col: 1 }, "4"),
+            GridCell({ col: 1 }, "5"),
+            GridCell({ col: 1 }, "6"),
+            GridCell({ col: 1 }, "7"),
+            GridCell({ col: 1 }, "8"),
+            GridCell({ col: 1 }, "9"),
+            GridCell({ col: 1 }, "10"),
+            GridCell({ col: 1 }, "11"),
+            GridCell({ col: 1 }, "12")
+          ),
+          Grid({},
+            GridCell({ col: 4 }, "4"),
+            GridCell({ col: 4 }, "4"),
+            GridCell({ col: 4 }, "4")
+          )
+        ), document.getElementById("Grid")
+      );
+
+      var Tabs = React.createFactory(MaterialTabs);
+      var TabsBar = React.createFactory(MaterialTabsBar);
+      var TabsTab = React.createFactory(MaterialTabsTab);
+      var TabPanel = React.createFactory(MaterialTabsPanel);
+
+      React.render(
+        React.DOM.div({},
+          Tabs({ ripple: true },
+            TabsBar({},
+              TabsTab({ href: "#tab-1", isActive: true }, "Tab 1"),
+              TabsTab({ href: "#tab-2" }, "Tab 2"),
+              TabsTab({ href: "#tab-3" }, "Tab 3")
+            ),
+            TabPanel({ id: "tab-1", isActive: true }, "1"),
+            TabPanel({ id: "tab-2" }, "2"),
+            TabPanel({ id: "tab-3" }, "3")
+          )
+        ), document.getElementById("Tabs")
+      );
+
+      var Spinner = React.createFactory(MaterialSpinner);
+      React.render(
+        React.DOM.div({},
+          Spinner({}),
+          Spinner({ singleColor: true })
+        ), document.getElementById("Spinner")
+      );
+
+      var data = [
+        { Id: 1, Title: "Title 1", Active: true },
+        { Id: 2, Title: "Title 2", Active: false },
+        { Id: 3, Title: "Title 3", Active: true }
+      ];
+
+      var Table = React.createFactory(MaterialDataTable);
+      var TableHeader = React.createFactory(MaterialDataTableHeader);
+      React.render(
+        Table({ data: data },
+          TableHeader({ dataField: "Id", valueSelector: function(i) { return React.DOM.b({}, i["Id"]) } }, "Item Id"),
+          TableHeader({ dataField: "Title", nonNumeric: true }, "Item Title"),
+          TableHeader({ dataField: "Active", nonNumeric: false, valueSelector: function(item, header, rowIndex) { return Checkbox({ ripple: true, checked: item[header.dataField], id: "Active" + rowIndex, onChange: function() {} }) } }, "Item Active")
+        ), document.getElementById("Table")
+      );
+
+    </script>
+  </body>
+</html>

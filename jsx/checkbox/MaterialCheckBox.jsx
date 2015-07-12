@@ -1,4 +1,4 @@
-class MaterialCheckBox extends React.Component {
+class MaterialCheckBoxUpgraded extends React.Component {
 
     constructor(props) {
         super(props);
@@ -94,7 +94,7 @@ class MaterialCheckBox extends React.Component {
 
         return (
             <label className={Array.from(this.classList).join(" ")} htmlFor={this.props.id}>
-                <input type="checkbox" id={this.props.id} className={this.CssClasses_.INPUT} checked={this.state.checked} onChange={this.onChange} /*onFocus={this.onFocus} onBlur={this.onBlur}*/ />
+                <input {...this.props} type="checkbox" id={this.props.id} className={this.CssClasses_.INPUT} checked={this.state.checked} onChange={this.onChange} /*onFocus={this.onFocus} onBlur={this.onBlur}*/ />
                 <span className="mdl-checkbox__label">{this.props.label}</span>
                 <span className={this.CssClasses_.FOCUS_HELPER}></span>
                 <span className={this.CssClasses_.BOX_OUTLINE}><span className={this.CssClasses_.TICK_OUTLINE}></span></span>
