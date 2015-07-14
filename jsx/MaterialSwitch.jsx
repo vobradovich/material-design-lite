@@ -1,4 +1,4 @@
-class MaterialCheckBox extends React.Component {
+class MaterialSwitch extends React.Component {
     static propTypes = {
         id: React.PropTypes.string.isRequired,
         checked: React.PropTypes.bool,
@@ -8,8 +8,8 @@ class MaterialCheckBox extends React.Component {
 
     render() {
         var classList = React.addons.classSet({
-            "mdl-checkbox" : true,
-            "mdl-js-checkbox": true,
+            "mdl-switch" : true,
+            "mdl-js-switch": true,
             "mdl-js-ripple-effect": this.props.ripple,
             "is-disabled": this.props.disabled,
             "is-checked": this.props.checked,
@@ -23,8 +23,8 @@ class MaterialCheckBox extends React.Component {
 
         return (
             <label className={classList} htmlFor={this.props.id}>
-                <input {...props} type="checkbox" className="mdl-checkbox__input" />
-                <span className="mdl-checkbox__label">{children}</span>
+                <input {...props} type="checkbox" className="mdl-switch__input" />
+                <span className="mdl-switch__label">{children}</span>
             </label>
         );
     }

@@ -12,7 +12,7 @@ class MaterialTable extends React.Component {
     render() {
         var classList = React.addons.classSet({
             "mdl-data-table" : true,
-            "mdl-js-data-table": true,
+            "mdl-js-data-table": !this.props.isUpgraded,
             "mdl-data-table--selectable": this.props.selectable,
             "is-upgraded": this.props.isUpgraded
         });
@@ -28,7 +28,7 @@ class MaterialTable extends React.Component {
     }
 }
 
-class MaterialDataTableHeader extends React.Component {
+class MaterialTableColumn extends React.Component {
     static propTypes = {
         nonNumeric: React.PropTypes.bool,
         valueSelector: React.PropTypes.func
@@ -64,41 +64,39 @@ class MaterialTableCell extends React.Component {
 }
 
 class MaterialDataTable extends React.Component {
-    selectRow(e, rowIndex) {
-        this.props.selectRow(e, rowIndex)
+    static propTypes = {
+        nonNumeric: React.PropTypes.bool,
+        rowSelector: React.PropTypes.func
     }
 
     render() {
         var {
             children,
             data,
+            rowSelector,
             ...others,
         } = this.props;
+        rowSelector = rowSelector || ((item, rowIndex) => false);
 
         var rows = data.map((item, rowIndex) => {
-            var cells = children.map((header, cellIndex) => {
+            var cells = children.map((column, cellIndex) => {
                 var {
-                    valueSelector,
+                    valueSelector,                    
                     ...cellProps,
-                } = header.props;
-                valueSelector = valueSelector || ((item, header, rowIndex) => item[header.props.dataField]);
-                var value = valueSelector(item, header, rowIndex);
+                } = column.props;
+                valueSelector = valueSelector || ((item, column, rowIndex) => item[column.props.dataField]);
+                
+                var value = valueSelector(item, column, rowIndex);
                 return (<MaterialTableCell key={cellIndex} {...cellProps}>{value}</MaterialTableCell>)
             });
-            if (this.props.selectable) {
-                var checkBoxCell = (<td><MaterialCheckBox id="checkbox_{index}" onChange={this.selectRow}/></td>);
-                cells.unshift(checkBoxCell);
-            }
-            return (<tr key={rowIndex}>{cells}</tr>)
+            var classList = React.addons.classSet({
+                "is-selected": rowSelector(item)
+            });
+            return (<tr key={rowIndex} className={classList}>{cells}</tr>)
         });
 
-        if (this.props.selectable) {
-            var checkBoxTd = (<th><MaterialCheckBox id="checkbox_header" onChange={this.selectRow}/></th>);
-            children.unshift(checkBoxTd);
-        }
-
         return (
-            <MaterialTable {...this.props}>
+            <MaterialTable {...others}>
                 <thead>
                     <tr>
                         {children}

@@ -33,6 +33,8 @@
     <div style="padding-top: 24px;" id="Button"></div>
     <div style="padding-top: 24px;" id="ButtonRaised"></div>
     <div style="padding-top: 24px;" id="ButtonFab"></div>
+    
+    <h3>Checkbox <code>.mdl-checkbox</code></h3>
     <div style="padding-top: 24px;" id="Checkbox"></div>
 
     <h3>Cards <code>.mdl-card</code></h3>
@@ -48,8 +50,14 @@
     <h3>Spinner <code>.mdl-spinner</code></h3>
     <div style="padding-top: 24px;" id="Spinner"></div>
 
-    <h3>Table <code>.mdl-spinner</code></h3>
+    <h3>Table <code>.mdl-data-table</code></h3>
     <div style="padding-top: 24px;" id="Table"></div>
+
+    <h3>Table with React Selection<code>.mdl-data-table</code></h3>
+    <div style="padding-top: 24px;" id="Table2"></div>
+
+    <h3>Menu<code>.mdl-menu</code></h3>
+    <div style="padding-top: 24px;" id="Menu"></div>
 
     <!-- Built with love using Material Design Lite -->
     
@@ -86,9 +94,13 @@
       );
 
       var Checkbox = React.createFactory(MaterialCheckBox);
+      var Switch = React.createFactory(MaterialSwitch);
       React.render(
         React.DOM.div({},
-          Checkbox({ ripple: true, id: "Checkbox-1" }, "Checkbox")
+          Checkbox({ ripple: true, id: "Checkbox-1" }, "Checkbox"),
+          Checkbox({ ripple: true, id: "Checkbox-2", defaultChecked: true, onChange: function() {} }, "Checkbox"),
+          Switch({ ripple: true, id: "Switch-1" }, "Switch"),
+          Switch({ ripple: true, id: "Switch-2", defaultChecked: true, onChange: function() {} }, "Switch")
         ), document.getElementById("Checkbox")
       );
 
@@ -180,19 +192,65 @@
       );
 
       var data = [
-        { Id: 1, Title: "Title 1", Active: true },
-        { Id: 2, Title: "Title 2", Active: false },
-        { Id: 3, Title: "Title 3", Active: true }
+        { Id: 1, Title: "Title 1", Active: true, selected: false },
+        { Id: 2, Title: "Title 2", Active: false, selected: false },
+        { Id: 3, Title: "Title 3", Active: true, selected: false }
       ];
 
       var Table = React.createFactory(MaterialDataTable);
-      var TableHeader = React.createFactory(MaterialDataTableHeader);
+      var Column = React.createFactory(MaterialTableColumn);
       React.render(
-        Table({ data: data },
-          TableHeader({ dataField: "Id", valueSelector: function(i) { return React.DOM.b({}, i["Id"]) } }, "Item Id"),
-          TableHeader({ dataField: "Title", nonNumeric: true }, "Item Title"),
-          TableHeader({ dataField: "Active", nonNumeric: false, valueSelector: function(item, header, rowIndex) { return Checkbox({ ripple: true, checked: item[header.dataField], id: "Active" + rowIndex, onChange: function() {} }) } }, "Item Active")
+        React.DOM.div({},
+          Table({ data: data, selectable: true },
+            Column({ dataField: "Id", valueSelector: function(i) { return React.DOM.b({}, i["Id"]) } }, "Item Id"),
+            Column({ dataField: "Title", nonNumeric: true }, "Item Title"),
+            Column({ dataField: "Active", nonNumeric: false, valueSelector: function(item, header, rowIndex) { return Checkbox({ ripple: true, disabled: true, defaultChecked: item[header.props.dataField], id: "Active" + rowIndex, onChange: function(e) { console.log(e.target.checked)} }) } }, "Item Active")
+          )
         ), document.getElementById("Table")
+      );
+
+
+      var selectRow = function(e, rowIndex) {
+        if (rowIndex > -1) {
+          data[rowIndex].selected = e.target.checked;
+        }
+        else {
+          data.forEach(function(item) {
+            item.selected = e.target.checked;
+          });
+        }
+        renderTable(data);
+      };      
+
+      var checkbox = function(item, header, rowIndex) {
+        return Checkbox({ ripple: true, checked: item.selected, id: "selected" + rowIndex, onChange: function(e) { selectRow(e, rowIndex) }, isUpgraded: true });
+      };
+
+      var renderTable = function(data) {
+        React.render(
+          Table({ data: data, rowSelector: function(item, rowIndex) { return item.selected } },
+            Column({ dataField: "selected", valueSelector: checkbox }, Checkbox({ ripple: true, disabled: false, defaultChecked: false, id: "selected-1", onChange: function(e) { return selectRow(e, -1) } }) ),
+            Column({ dataField: "Id", valueSelector: function(i) { return React.DOM.b({}, i["Id"]) } }, "Item Id"),
+            Column({ dataField: "Title", nonNumeric: true }, "Item Title"),
+            Column({ dataField: "Active", nonNumeric: false, valueSelector: function(item, header, rowIndex) { return Checkbox({ disabled: true, defaultChecked: item[header.props.dataField], id: "Active" + rowIndex }) } }, "Item Active")
+          ), document.getElementById("Table2")
+        );
+      };
+      renderTable(data);
+
+      var Menu = React.createFactory(MaterialMenu);
+      var MenuItem = React.createFactory(MaterialMenuItem);
+      React.render(
+        React.DOM.div({},
+          Button({ icon: true, id: "demo-menu" }, React.DOM.i({ className: "material-icons" }, "more_vert")),
+          Menu({ htmlFor: "demo-menu" },
+            MenuItem({}, "Some Action"),
+            MenuItem({}, "Another Action"),
+            MenuItem({ disabled: true }, "Disabled Action"),
+            MenuItem({}, "Yet Another Action")
+          )
+
+        ), document.getElementById("Menu")
       );
 
     </script>

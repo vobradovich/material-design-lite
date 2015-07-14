@@ -718,7 +718,7 @@ gulp.task("jsx", function () {
   return gulp.src(["jsx/**/*.jsx"])
     .pipe($.sourcemaps.init())
     .pipe($.concat("react-material.js"))
-    .pipe(babel())
+    .pipe(babel({ stage: 0 }))
     .pipe($.sourcemaps.write("."))
     .pipe(gulp.dest("dist"));
 });

@@ -5,6 +5,7 @@ class MaterialButton extends React.Component {
         colored: React.PropTypes.bool,
         fab: React.PropTypes.bool,
         miniFab: React.PropTypes.bool,
+        icon: React.PropTypes.bool,
         ripple: React.PropTypes.bool
     }
 
@@ -27,16 +28,12 @@ class MaterialButton extends React.Component {
             "mdl-button--colored": this.props.colored,
             "mdl-button--fab": this.props.fab,
             "mdl-button--mini-fab": this.props.miniFab,
+            "mdl-button--icon": this.props.icon,
             "mdl-js-ripple-effect": this.props.ripple
         });
-        var {
-            children,
-            ...others,
-            } = this.props;
 
         return (
-            <button {...others} className={classList}>
-            {children}
+            <button {...this.props} className={classList}>
             </button>
         );
     }

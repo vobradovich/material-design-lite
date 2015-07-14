@@ -2,7 +2,6 @@ class MaterialGrid extends React.Component {
     render() {
         return (
             <div {...this.props} className= "mdl-grid">
-                {this.props.children}
             </div>
         );
     };
@@ -26,7 +25,6 @@ class MaterialGridCell extends React.Component {
 
         return (
             <div {...this.props} className={classList}>
-                {this.props.children}
             </div>
         );
 
