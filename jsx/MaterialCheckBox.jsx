@@ -13,7 +13,7 @@ class MaterialCheckBox extends React.Component {
             "mdl-js-ripple-effect": this.props.ripple,
             "is-disabled": this.props.disabled,
             "is-checked": this.props.checked,
-            "is-upgraded": this.props.isUpgraded,
+            "is-upgraded": this.props.isUpgraded
         });
 
         var {

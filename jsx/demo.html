@@ -202,9 +202,9 @@
       React.render(
         React.DOM.div({},
           Table({ data: data, selectable: true },
-            Column({ dataField: "Id", valueSelector: function(i) { return React.DOM.b({}, i["Id"]) } }, "Item Id"),
+            Column({ dataField: "Id", valueRender: function(i) { return React.DOM.b({}, i["Id"]) } }, "Item Id"),
             Column({ dataField: "Title", nonNumeric: true }, "Item Title"),
-            Column({ dataField: "Active", nonNumeric: false, valueSelector: function(item, header, rowIndex) { return Checkbox({ ripple: true, disabled: true, defaultChecked: item[header.props.dataField], id: "Active" + rowIndex, onChange: function(e) { console.log(e.target.checked)} }) } }, "Item Active")
+            Column({ dataField: "Active", nonNumeric: false, valueRender: function(item, header, rowIndex) { return Checkbox({ ripple: true, disabled: true, defaultChecked: item[header.props.dataField], id: "Active" + rowIndex, onChange: function(e) { console.log(e.target.checked)} }) } }, "Item Active")
           )
         ), document.getElementById("Table")
       );
@@ -229,10 +229,10 @@
       var renderTable = function(data) {
         React.render(
           Table({ data: data, rowSelector: function(item, rowIndex) { return item.selected } },
-            Column({ dataField: "selected", valueSelector: checkbox }, Checkbox({ ripple: true, disabled: false, defaultChecked: false, id: "selected-1", onChange: function(e) { return selectRow(e, -1) } }) ),
-            Column({ dataField: "Id", valueSelector: function(i) { return React.DOM.b({}, i["Id"]) } }, "Item Id"),
+            Column({ dataField: "selected", valueRender: checkbox }, Checkbox({ ripple: true, disabled: false, defaultChecked: false, id: "selected-1", onChange: function(e) { return selectRow(e, -1) } }) ),
+            Column({ dataField: "Id", valueRender: function(i) { return React.DOM.b({}, i["Id"]) } }, "Item Id"),
             Column({ dataField: "Title", nonNumeric: true }, "Item Title"),
-            Column({ dataField: "Active", nonNumeric: false, valueSelector: function(item, header, rowIndex) { return Checkbox({ disabled: true, defaultChecked: item[header.props.dataField], id: "Active" + rowIndex }) } }, "Item Active")
+            Column({ dataField: "Active", nonNumeric: false, valueRender: function(item, header, rowIndex) { return Checkbox({ disabled: true, defaultChecked: item[header.props.dataField], id: "Active" + rowIndex }) } }, "Item Active")
           ), document.getElementById("Table2")
         );
       };

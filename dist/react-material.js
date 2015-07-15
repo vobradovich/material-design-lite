@@ -13,6 +13,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
 
 var MaterialButton = (function (_React$Component) {
+    _inherits(MaterialButton, _React$Component);
+
+    _createClass(MaterialButton, null, [{
+        key: 'propTypes',
+        value: {
+            raised: React.PropTypes.bool,
+            accent: React.PropTypes.bool,
+            colored: React.PropTypes.bool,
+            fab: React.PropTypes.bool,
+            miniFab: React.PropTypes.bool,
+            icon: React.PropTypes.bool,
+            ripple: React.PropTypes.bool
+        },
+        enumerable: true
+    }]);
+
     function MaterialButton(props) {
         _classCallCheck(this, MaterialButton);
 
@@ -24,8 +40,6 @@ var MaterialButton = (function (_React$Component) {
             RIPPLE: 'mdl-ripple'
         };
     }
-
-    _inherits(MaterialButton, _React$Component);
 
     _createClass(MaterialButton, [{
         key: 'render',
@@ -44,45 +58,15 @@ var MaterialButton = (function (_React$Component) {
 
             return React.createElement('button', _extends({}, this.props, { className: classList }));
         }
-    }], [{
-        key: 'propTypes',
-        value: {
-            raised: React.PropTypes.bool,
-            accent: React.PropTypes.bool,
-            colored: React.PropTypes.bool,
-            fab: React.PropTypes.bool,
-            miniFab: React.PropTypes.bool,
-            icon: React.PropTypes.bool,
-            ripple: React.PropTypes.bool
-        },
-        enumerable: true
     }]);
 
     return MaterialButton;
 })(React.Component);
 
 var MaterialCard = (function (_React$Component2) {
-    function MaterialCard(props) {
-        _classCallCheck(this, MaterialCard);
-
-        _get(Object.getPrototypeOf(MaterialCard.prototype), 'constructor', this).call(this, props);
-
-        this.classList = ['mdl-card'];
-    }
-
     _inherits(MaterialCard, _React$Component2);
 
-    _createClass(MaterialCard, [{
-        key: 'render',
-        value: function render() {
-            if (this.props.shadow > 0) {
-                var shadowClass = 'mdl-shadow--' + this.props.shadow + 'dp';
-                this.classList.push(shadowClass);
-            }
-
-            return React.createElement('div', _extends({}, this.props, { className: this.classList.join(' ') }));
-        }
-    }], [{
+    _createClass(MaterialCard, null, [{
         key: 'propTypes',
         value: {
             shadow: React.PropTypes.number
@@ -96,10 +80,40 @@ var MaterialCard = (function (_React$Component2) {
         enumerable: true
     }]);
 
+    function MaterialCard(props) {
+        _classCallCheck(this, MaterialCard);
+
+        _get(Object.getPrototypeOf(MaterialCard.prototype), 'constructor', this).call(this, props);
+
+        this.classList = ['mdl-card'];
+    }
+
+    _createClass(MaterialCard, [{
+        key: 'render',
+        value: function render() {
+            if (this.props.shadow > 0) {
+                var shadowClass = 'mdl-shadow--' + this.props.shadow + 'dp';
+                this.classList.push(shadowClass);
+            }
+
+            return React.createElement('div', _extends({}, this.props, { className: this.classList.join(' ') }));
+        }
+    }]);
+
     return MaterialCard;
 })(React.Component);
 
 var MaterialCardTitle = (function (_React$Component3) {
+    _inherits(MaterialCardTitle, _React$Component3);
+
+    _createClass(MaterialCardTitle, null, [{
+        key: 'propTypes',
+        value: {
+            expand: React.PropTypes.bool
+        },
+        enumerable: true
+    }]);
+
     function MaterialCardTitle(props) {
         _classCallCheck(this, MaterialCardTitle);
 
@@ -107,8 +121,6 @@ var MaterialCardTitle = (function (_React$Component3) {
 
         this.classList = ['mdl-card__title'];
     }
-
-    _inherits(MaterialCardTitle, _React$Component3);
 
     _createClass(MaterialCardTitle, [{
         key: 'render',
@@ -119,25 +131,19 @@ var MaterialCardTitle = (function (_React$Component3) {
 
             return React.createElement('div', _extends({}, this.props, { className: this.classList.join(' ') }));
         }
-    }], [{
-        key: 'propTypes',
-        value: {
-            expand: React.PropTypes.bool
-        },
-        enumerable: true
     }]);
 
     return MaterialCardTitle;
 })(React.Component);
 
 var MaterialCardTitleText = (function (_React$Component4) {
+    _inherits(MaterialCardTitleText, _React$Component4);
+
     function MaterialCardTitleText(props) {
         _classCallCheck(this, MaterialCardTitleText);
 
         _get(Object.getPrototypeOf(MaterialCardTitleText.prototype), 'constructor', this).call(this, props);
     }
-
-    _inherits(MaterialCardTitleText, _React$Component4);
 
     _createClass(MaterialCardTitleText, [{
         key: 'render',
@@ -154,6 +160,8 @@ var MaterialCardTitleText = (function (_React$Component4) {
 })(React.Component);
 
 var MaterialCardMedia = (function (_React$Component5) {
+    _inherits(MaterialCardMedia, _React$Component5);
+
     function MaterialCardMedia(props) {
         _classCallCheck(this, MaterialCardMedia);
 
@@ -161,8 +169,6 @@ var MaterialCardMedia = (function (_React$Component5) {
 
         this.classList = ['mdl-card__media'];
     }
-
-    _inherits(MaterialCardMedia, _React$Component5);
 
     _createClass(MaterialCardMedia, [{
         key: 'render',
@@ -175,6 +181,8 @@ var MaterialCardMedia = (function (_React$Component5) {
 })(React.Component);
 
 var MaterialCardSupportingText = (function (_React$Component6) {
+    _inherits(MaterialCardSupportingText, _React$Component6);
+
     function MaterialCardSupportingText(props) {
         _classCallCheck(this, MaterialCardSupportingText);
 
@@ -182,8 +190,6 @@ var MaterialCardSupportingText = (function (_React$Component6) {
 
         this.classList = ['mdl-card__supporting-text'];
     }
-
-    _inherits(MaterialCardSupportingText, _React$Component6);
 
     _createClass(MaterialCardSupportingText, [{
         key: 'render',
@@ -196,6 +202,16 @@ var MaterialCardSupportingText = (function (_React$Component6) {
 })(React.Component);
 
 var MaterialCardActions = (function (_React$Component7) {
+    _inherits(MaterialCardActions, _React$Component7);
+
+    _createClass(MaterialCardActions, null, [{
+        key: 'propTypes',
+        value: {
+            border: React.PropTypes.bool
+        },
+        enumerable: true
+    }]);
+
     function MaterialCardActions(props) {
         _classCallCheck(this, MaterialCardActions);
 
@@ -203,8 +219,6 @@ var MaterialCardActions = (function (_React$Component7) {
 
         this.classList = ['mdl-card__actions'];
     }
-
-    _inherits(MaterialCardActions, _React$Component7);
 
     _createClass(MaterialCardActions, [{
         key: 'render',
@@ -215,25 +229,19 @@ var MaterialCardActions = (function (_React$Component7) {
 
             return React.createElement('div', _extends({}, this.props, { className: this.classList.join(' ') }));
         }
-    }], [{
-        key: 'propTypes',
-        value: {
-            border: React.PropTypes.bool
-        },
-        enumerable: true
     }]);
 
     return MaterialCardActions;
 })(React.Component);
 
 var MaterialCheckBox = (function (_React$Component8) {
+    _inherits(MaterialCheckBox, _React$Component8);
+
     function MaterialCheckBox() {
         _classCallCheck(this, MaterialCheckBox);
 
         _get(Object.getPrototypeOf(MaterialCheckBox.prototype), 'constructor', this).apply(this, arguments);
     }
-
-    _inherits(MaterialCheckBox, _React$Component8);
 
     _createClass(MaterialCheckBox, [{
         key: 'render',
@@ -278,13 +286,13 @@ var MaterialCheckBox = (function (_React$Component8) {
 })(React.Component);
 
 var MaterialTable = (function (_React$Component9) {
+    _inherits(MaterialTable, _React$Component9);
+
     function MaterialTable() {
         _classCallCheck(this, MaterialTable);
 
         _get(Object.getPrototypeOf(MaterialTable.prototype), 'constructor', this).apply(this, arguments);
     }
-
-    _inherits(MaterialTable, _React$Component9);
 
     _createClass(MaterialTable, [{
         key: 'render',
@@ -322,13 +330,13 @@ var MaterialTable = (function (_React$Component9) {
 })(React.Component);
 
 var MaterialTableColumn = (function (_React$Component10) {
+    _inherits(MaterialTableColumn, _React$Component10);
+
     function MaterialTableColumn() {
         _classCallCheck(this, MaterialTableColumn);
 
         _get(Object.getPrototypeOf(MaterialTableColumn.prototype), 'constructor', this).apply(this, arguments);
     }
-
-    _inherits(MaterialTableColumn, _React$Component10);
 
     _createClass(MaterialTableColumn, [{
         key: 'render',
@@ -343,7 +351,7 @@ var MaterialTableColumn = (function (_React$Component10) {
         key: 'propTypes',
         value: {
             nonNumeric: React.PropTypes.bool,
-            valueSelector: React.PropTypes.func
+            valueRender: React.PropTypes.func
         },
         enumerable: true
     }]);
@@ -352,13 +360,13 @@ var MaterialTableColumn = (function (_React$Component10) {
 })(React.Component);
 
 var MaterialTableCell = (function (_React$Component11) {
+    _inherits(MaterialTableCell, _React$Component11);
+
     function MaterialTableCell() {
         _classCallCheck(this, MaterialTableCell);
 
         _get(Object.getPrototypeOf(MaterialTableCell.prototype), 'constructor', this).apply(this, arguments);
     }
-
-    _inherits(MaterialTableCell, _React$Component11);
 
     _createClass(MaterialTableCell, [{
         key: 'render',
@@ -380,14 +388,42 @@ var MaterialTableCell = (function (_React$Component11) {
     return MaterialTableCell;
 })(React.Component);
 
-var MaterialDataTable = (function (_React$Component12) {
+var MaterialTableRow = (function (_React$Component12) {
+    _inherits(MaterialTableRow, _React$Component12);
+
+    function MaterialTableRow() {
+        _classCallCheck(this, MaterialTableRow);
+
+        _get(Object.getPrototypeOf(MaterialTableRow.prototype), 'constructor', this).apply(this, arguments);
+    }
+
+    _createClass(MaterialTableRow, [{
+        key: 'render',
+        value: function render() {
+            var classList = React.addons.classSet({
+                'is-selected': this.props.selected
+            });
+            return React.createElement('tr', _extends({}, this.props, { className: classList }));
+        }
+    }], [{
+        key: 'propTypes',
+        value: {
+            selected: React.PropTypes.bool
+        },
+        enumerable: true
+    }]);
+
+    return MaterialTableRow;
+})(React.Component);
+
+var MaterialDataTable = (function (_React$Component13) {
+    _inherits(MaterialDataTable, _React$Component13);
+
     function MaterialDataTable() {
         _classCallCheck(this, MaterialDataTable);
 
         _get(Object.getPrototypeOf(MaterialDataTable.prototype), 'constructor', this).apply(this, arguments);
     }
-
-    _inherits(MaterialDataTable, _React$Component12);
 
     _createClass(MaterialDataTable, [{
         key: 'render',
@@ -396,37 +432,39 @@ var MaterialDataTable = (function (_React$Component12) {
             var children = _props2.children;
             var data = _props2.data;
             var rowSelector = _props2.rowSelector;
+            var keySelector = _props2.keySelector;
 
-            var others = _objectWithoutProperties(_props2, ['children', 'data', 'rowSelector']);
+            var others = _objectWithoutProperties(_props2, ['children', 'data', 'rowSelector', 'keySelector']);
 
+            data = data || [];
             rowSelector = rowSelector || function (item, rowIndex) {
                 return false;
             };
+            keySelector = keySelector || function (item, rowIndex) {
+                return rowIndex;
+            };
 
             var rows = data.map(function (item, rowIndex) {
-                var cells = children.map(function (column, cellIndex) {
+                var cells = React.Children.map(children, function (column, cellIndex) {
                     var _column$props = column.props;
-                    var valueSelector = _column$props.valueSelector;
+                    var valueRender = _column$props.valueRender;
 
-                    var cellProps = _objectWithoutProperties(_column$props, ['valueSelector']);
+                    var cellProps = _objectWithoutProperties(_column$props, ['valueRender']);
 
-                    valueSelector = valueSelector || function (item, column, rowIndex) {
+                    valueRender = valueRender || function (item, column, rowIndex) {
                         return item[column.props.dataField];
                     };
 
-                    var value = valueSelector(item, column, rowIndex);
+                    var value = valueRender(item, column, rowIndex);
                     return React.createElement(
                         MaterialTableCell,
                         _extends({ key: cellIndex }, cellProps),
                         value
                     );
                 });
-                var classList = React.addons.classSet({
-                    'is-selected': rowSelector(item)
-                });
                 return React.createElement(
-                    'tr',
-                    { key: rowIndex, className: classList },
+                    MaterialTableRow,
+                    { key: keySelector(item, rowIndex), selected: rowSelector(item, rowIndex) },
                     cells
                 );
             });
@@ -454,6 +492,7 @@ var MaterialDataTable = (function (_React$Component12) {
         key: 'propTypes',
         value: {
             nonNumeric: React.PropTypes.bool,
+            keySelector: React.PropTypes.func,
             rowSelector: React.PropTypes.func
         },
         enumerable: true
@@ -462,14 +501,14 @@ var MaterialDataTable = (function (_React$Component12) {
     return MaterialDataTable;
 })(React.Component);
 
-var MaterialGrid = (function (_React$Component13) {
+var MaterialGrid = (function (_React$Component14) {
+    _inherits(MaterialGrid, _React$Component14);
+
     function MaterialGrid() {
         _classCallCheck(this, MaterialGrid);
 
         _get(Object.getPrototypeOf(MaterialGrid.prototype), 'constructor', this).apply(this, arguments);
     }
-
-    _inherits(MaterialGrid, _React$Component13);
 
     _createClass(MaterialGrid, [{
         key: 'render',
@@ -481,14 +520,14 @@ var MaterialGrid = (function (_React$Component13) {
     return MaterialGrid;
 })(React.Component);
 
-var MaterialGridCell = (function (_React$Component14) {
+var MaterialGridCell = (function (_React$Component15) {
+    _inherits(MaterialGridCell, _React$Component15);
+
     function MaterialGridCell() {
         _classCallCheck(this, MaterialGridCell);
 
         _get(Object.getPrototypeOf(MaterialGridCell.prototype), 'constructor', this).apply(this, arguments);
     }
-
-    _inherits(MaterialGridCell, _React$Component14);
 
     _createClass(MaterialGridCell, [{
         key: 'render',
@@ -516,14 +555,14 @@ var MaterialGridCell = (function (_React$Component14) {
     return MaterialGridCell;
 })(React.Component);
 
-var MaterialMenu = (function (_React$Component15) {
+var MaterialMenu = (function (_React$Component16) {
+    _inherits(MaterialMenu, _React$Component16);
+
     function MaterialMenu() {
         _classCallCheck(this, MaterialMenu);
 
         _get(Object.getPrototypeOf(MaterialMenu.prototype), 'constructor', this).apply(this, arguments);
     }
-
-    _inherits(MaterialMenu, _React$Component15);
 
     _createClass(MaterialMenu, [{
         key: 'render',
@@ -553,14 +592,14 @@ var MaterialMenu = (function (_React$Component15) {
     return MaterialMenu;
 })(React.Component);
 
-var MaterialMenuItem = (function (_React$Component16) {
+var MaterialMenuItem = (function (_React$Component17) {
+    _inherits(MaterialMenuItem, _React$Component17);
+
     function MaterialMenuItem() {
         _classCallCheck(this, MaterialMenuItem);
 
         _get(Object.getPrototypeOf(MaterialMenuItem.prototype), 'constructor', this).apply(this, arguments);
     }
-
-    _inherits(MaterialMenuItem, _React$Component16);
 
     _createClass(MaterialMenuItem, [{
         key: 'render',
@@ -572,14 +611,14 @@ var MaterialMenuItem = (function (_React$Component16) {
     return MaterialMenuItem;
 })(React.Component);
 
-var MaterialSpinner = (function (_React$Component17) {
+var MaterialSpinner = (function (_React$Component18) {
+    _inherits(MaterialSpinner, _React$Component18);
+
     function MaterialSpinner() {
         _classCallCheck(this, MaterialSpinner);
 
         _get(Object.getPrototypeOf(MaterialSpinner.prototype), 'constructor', this).apply(this, arguments);
     }
-
-    _inherits(MaterialSpinner, _React$Component17);
 
     _createClass(MaterialSpinner, [{
         key: 'render',
@@ -588,6 +627,7 @@ var MaterialSpinner = (function (_React$Component17) {
                 'mdl-spinner': true,
                 'mdl-js-spinner': true,
                 'is-active': this.props.isActive,
+                'is-upgraded': this.props.isUpgraded,
                 'mdl-spinner--single-color': this.props.singleColor
             });
 
@@ -615,14 +655,14 @@ var MaterialSpinner = (function (_React$Component17) {
     return MaterialSpinner;
 })(React.Component);
 
-var MaterialSwitch = (function (_React$Component18) {
+var MaterialSwitch = (function (_React$Component19) {
+    _inherits(MaterialSwitch, _React$Component19);
+
     function MaterialSwitch() {
         _classCallCheck(this, MaterialSwitch);
 
         _get(Object.getPrototypeOf(MaterialSwitch.prototype), 'constructor', this).apply(this, arguments);
     }
-
-    _inherits(MaterialSwitch, _React$Component18);
 
     _createClass(MaterialSwitch, [{
         key: 'render',
@@ -666,14 +706,14 @@ var MaterialSwitch = (function (_React$Component18) {
     return MaterialSwitch;
 })(React.Component);
 
-var MaterialTabs = (function (_React$Component19) {
+var MaterialTabs = (function (_React$Component20) {
+    _inherits(MaterialTabs, _React$Component20);
+
     function MaterialTabs() {
         _classCallCheck(this, MaterialTabs);
 
         _get(Object.getPrototypeOf(MaterialTabs.prototype), 'constructor', this).apply(this, arguments);
     }
-
-    _inherits(MaterialTabs, _React$Component19);
 
     _createClass(MaterialTabs, [{
         key: 'render',
@@ -697,14 +737,14 @@ var MaterialTabs = (function (_React$Component19) {
     return MaterialTabs;
 })(React.Component);
 
-var MaterialTabsBar = (function (_React$Component20) {
+var MaterialTabsBar = (function (_React$Component21) {
+    _inherits(MaterialTabsBar, _React$Component21);
+
     function MaterialTabsBar() {
         _classCallCheck(this, MaterialTabsBar);
 
         _get(Object.getPrototypeOf(MaterialTabsBar.prototype), 'constructor', this).apply(this, arguments);
     }
-
-    _inherits(MaterialTabsBar, _React$Component20);
 
     _createClass(MaterialTabsBar, [{
         key: 'render',
@@ -720,14 +760,14 @@ var MaterialTabsBar = (function (_React$Component20) {
     return MaterialTabsBar;
 })(React.Component);
 
-var MaterialTabsTab = (function (_React$Component21) {
+var MaterialTabsTab = (function (_React$Component22) {
+    _inherits(MaterialTabsTab, _React$Component22);
+
     function MaterialTabsTab() {
         _classCallCheck(this, MaterialTabsTab);
 
         _get(Object.getPrototypeOf(MaterialTabsTab.prototype), 'constructor', this).apply(this, arguments);
     }
-
-    _inherits(MaterialTabsTab, _React$Component21);
 
     _createClass(MaterialTabsTab, [{
         key: 'render',
@@ -750,14 +790,14 @@ var MaterialTabsTab = (function (_React$Component21) {
     return MaterialTabsTab;
 })(React.Component);
 
-var MaterialTabsPanel = (function (_React$Component22) {
+var MaterialTabsPanel = (function (_React$Component23) {
+    _inherits(MaterialTabsPanel, _React$Component23);
+
     function MaterialTabsPanel() {
         _classCallCheck(this, MaterialTabsPanel);
 
         _get(Object.getPrototypeOf(MaterialTabsPanel.prototype), 'constructor', this).apply(this, arguments);
     }
-
-    _inherits(MaterialTabsPanel, _React$Component22);
 
     _createClass(MaterialTabsPanel, [{
         key: 'render',
@@ -780,7 +820,9 @@ var MaterialTabsPanel = (function (_React$Component22) {
     return MaterialTabsPanel;
 })(React.Component);
 
-var MaterialCheckBoxUpgraded = (function (_React$Component23) {
+var MaterialCheckBoxUpgraded = (function (_React$Component24) {
+    _inherits(MaterialCheckBoxUpgraded, _React$Component24);
+
     function MaterialCheckBoxUpgraded(props) {
         _classCallCheck(this, MaterialCheckBoxUpgraded);
 
@@ -842,8 +884,6 @@ var MaterialCheckBoxUpgraded = (function (_React$Component23) {
             focused: false
         };
     }
-
-    _inherits(MaterialCheckBoxUpgraded, _React$Component23);
 
     _createClass(MaterialCheckBoxUpgraded, [{
         key: 'render',

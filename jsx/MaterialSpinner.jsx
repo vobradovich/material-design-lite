@@ -13,6 +13,7 @@ class MaterialSpinner extends React.Component {
             "mdl-spinner" : true,
             "mdl-js-spinner" : true,
             "is-active": this.props.isActive,
+			"is-upgraded": this.props.isUpgraded,
             "mdl-spinner--single-color": this.props.singleColor
         });
 

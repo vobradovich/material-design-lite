@@ -31,7 +31,7 @@ class MaterialTable extends React.Component {
 class MaterialTableColumn extends React.Component {
     static propTypes = {
         nonNumeric: React.PropTypes.bool,
-        valueSelector: React.PropTypes.func
+        valueRender: React.PropTypes.func
     }
     
     render() {
@@ -63,9 +63,26 @@ class MaterialTableCell extends React.Component {
     }
 }
 
+class MaterialTableRow extends React.Component {
+    static propTypes = {
+        selected: React.PropTypes.bool
+    }
+	
+    render() {
+		var classList = React.addons.classSet({
+			"is-selected": this.props.selected
+		});
+		return (
+			<tr {...this.props} className={classList}>
+			</tr>
+		);
+    }
+}
+
 class MaterialDataTable extends React.Component {
     static propTypes = {
         nonNumeric: React.PropTypes.bool,
+		keySelector: React.PropTypes.func,
         rowSelector: React.PropTypes.func
     }
 
@@ -74,25 +91,25 @@ class MaterialDataTable extends React.Component {
             children,
             data,
             rowSelector,
+			keySelector,
             ...others,
         } = this.props;
+		data = data || [];
         rowSelector = rowSelector || ((item, rowIndex) => false);
+		keySelector = keySelector || ((item, rowIndex) => rowIndex);
 
         var rows = data.map((item, rowIndex) => {
-            var cells = children.map((column, cellIndex) => {
+            var cells = React.Children.map(children, (column, cellIndex) => {
                 var {
-                    valueSelector,                    
+                    valueRender,
                     ...cellProps,
                 } = column.props;
-                valueSelector = valueSelector || ((item, column, rowIndex) => item[column.props.dataField]);
+                valueRender = valueRender || ((item, column, rowIndex) => item[column.props.dataField]);
                 
-                var value = valueSelector(item, column, rowIndex);
-                return (<MaterialTableCell key={cellIndex} {...cellProps}>{value}</MaterialTableCell>)
+                var value = valueRender(item, column, rowIndex);
+                return (<MaterialTableCell key={cellIndex} {...cellProps}>{value}</MaterialTableCell>);
             });
-            var classList = React.addons.classSet({
-                "is-selected": rowSelector(item)
-            });
-            return (<tr key={rowIndex} className={classList}>{cells}</tr>)
+			return (<MaterialTableRow key={keySelector(item, rowIndex)} selected={rowSelector(item, rowIndex)}>{cells}</MaterialTableRow>);
         });
 
         return (
