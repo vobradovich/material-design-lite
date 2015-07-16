@@ -18,7 +18,6 @@ class MaterialSpinner extends React.Component {
 
         return (
             <div {...this.props} className={classList}>
-                {this.props.children}
             </div>
         );
     };

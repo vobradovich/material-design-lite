@@ -37,6 +37,9 @@
     <h3>Checkbox <code>.mdl-checkbox</code></h3>
     <div style="padding-top: 24px;" id="Checkbox"></div>
 
+    <h3>Radio <code>.mdl-radio</code></h3>
+    <div style="padding-top: 24px;" id="Radio"></div>
+
     <h3>Cards <code>.mdl-card</code></h3>
     <div style="padding-top: 24px;" id="Card"></div>
     <div style="padding-top: 24px;" id="Card2"></div>
@@ -58,6 +61,9 @@
 
     <h3>Menu<code>.mdl-menu</code></h3>
     <div style="padding-top: 24px;" id="Menu"></div>
+
+    <h3>Text Fields <code>.mdl-textfield</code></h3>
+    <div style="padding-top: 24px;" id="TextField"></div>
 
     <!-- Built with love using Material Design Lite -->
     
@@ -102,6 +108,14 @@
           Switch({ ripple: true, id: "Switch-1" }, "Switch"),
           Switch({ ripple: true, id: "Switch-2", defaultChecked: true, onChange: function() {} }, "Switch")
         ), document.getElementById("Checkbox")
+      );
+
+      var Radio = React.createFactory(MaterialRadio);
+      React.render(
+        React.DOM.div({},
+          Radio({ ripple: true, id: "Radio-1", name: "Radio", value: "1" }, "Radio 1"),
+          Radio({ ripple: true, id: "Radio-2", name: "Radio", value: "1", defaultChecked: true, onChange: function() {} }, "Radio 2")
+        ), document.getElementById("Radio")
       );
 
       var Card = React.createFactory(MaterialCard);
@@ -251,6 +265,14 @@
           )
 
         ), document.getElementById("Menu")
+      );
+
+      var TextField = React.createFactory(MaterialTextField);
+      React.render(
+        React.DOM.div({},
+          TextField({ id: "field1" }, "Text"),
+          TextField({ id: "field1", pattern: "-?[0-9]*(\.[0-9]+)?", errorMessage: "Input is not a number!" }, "Number")
+        ), document.getElementById("TextField")
       );
 
     </script>

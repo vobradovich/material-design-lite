@@ -516,14 +516,65 @@ var MaterialGridCell = (function (_React$Component14) {
     return MaterialGridCell;
 })(React.Component);
 
-var MaterialMenu = (function (_React$Component15) {
+var MaterialIconToggle = (function (_React$Component15) {
+    function MaterialIconToggle() {
+        _classCallCheck(this, MaterialIconToggle);
+
+        _get(Object.getPrototypeOf(MaterialIconToggle.prototype), 'constructor', this).apply(this, arguments);
+    }
+
+    _inherits(MaterialIconToggle, _React$Component15);
+
+    _createClass(MaterialIconToggle, [{
+        key: 'render',
+        value: function render() {
+            var classList = React.addons.classSet({
+                'mdl-icon-toggle': true,
+                'mdl-js-icon-toggle': true,
+                'mdl-js-ripple-effect': this.props.ripple,
+                'is-disabled': this.props.disabled,
+                'is-checked': this.props.checked,
+                'is-upgraded': this.props.isUpgraded
+            });
+
+            var _props3 = this.props;
+            var children = _props3.children;
+
+            var props = _objectWithoutProperties(_props3, ['children']);
+
+            return React.createElement(
+                'label',
+                { className: classList, htmlFor: this.props.id },
+                React.createElement('input', _extends({}, props, { type: 'checkbox', className: 'mdl-icon-toggle__input' })),
+                React.createElement(
+                    'i',
+                    { className: 'mdl-icon-toggle__label material-icons' },
+                    children
+                )
+            );
+        }
+    }], [{
+        key: 'propTypes',
+        value: {
+            id: React.PropTypes.string.isRequired,
+            checked: React.PropTypes.bool,
+            disabled: React.PropTypes.bool,
+            isUpgraded: React.PropTypes.bool
+        },
+        enumerable: true
+    }]);
+
+    return MaterialIconToggle;
+})(React.Component);
+
+var MaterialMenu = (function (_React$Component16) {
     function MaterialMenu() {
         _classCallCheck(this, MaterialMenu);
 
         _get(Object.getPrototypeOf(MaterialMenu.prototype), 'constructor', this).apply(this, arguments);
     }
 
-    _inherits(MaterialMenu, _React$Component15);
+    _inherits(MaterialMenu, _React$Component16);
 
     _createClass(MaterialMenu, [{
         key: 'render',
@@ -553,14 +604,14 @@ var MaterialMenu = (function (_React$Component15) {
     return MaterialMenu;
 })(React.Component);
 
-var MaterialMenuItem = (function (_React$Component16) {
+var MaterialMenuItem = (function (_React$Component17) {
     function MaterialMenuItem() {
         _classCallCheck(this, MaterialMenuItem);
 
         _get(Object.getPrototypeOf(MaterialMenuItem.prototype), 'constructor', this).apply(this, arguments);
     }
 
-    _inherits(MaterialMenuItem, _React$Component16);
+    _inherits(MaterialMenuItem, _React$Component17);
 
     _createClass(MaterialMenuItem, [{
         key: 'render',
@@ -572,14 +623,106 @@ var MaterialMenuItem = (function (_React$Component16) {
     return MaterialMenuItem;
 })(React.Component);
 
-var MaterialSpinner = (function (_React$Component17) {
+var MaterialProgress = (function (_React$Component18) {
+    function MaterialProgress() {
+        _classCallCheck(this, MaterialProgress);
+
+        _get(Object.getPrototypeOf(MaterialProgress.prototype), 'constructor', this).apply(this, arguments);
+    }
+
+    _inherits(MaterialProgress, _React$Component18);
+
+    _createClass(MaterialProgress, [{
+        key: 'render',
+        value: function render() {
+            var classList = React.addons.classSet({
+                'mdl-progress': true,
+                'mdl-js-progress': true,
+                'mdl-progress__indeterminate': this.props.indeterminate,
+                'is-upgraded': this.props.isUpgraded
+            });
+
+            return React.createElement('div', _extends({}, this.props, { className: classList }));
+        }
+    }], [{
+        key: 'propTypes',
+        value: {
+            indeterminate: React.PropTypes.bool,
+            isUpgraded: React.PropTypes.bool
+        },
+        enumerable: true
+    }, {
+        key: 'defaultProps',
+        value: {
+            indeterminate: false
+        },
+        enumerable: true
+    }]);
+
+    return MaterialProgress;
+})(React.Component);
+
+var MaterialRadio = (function (_React$Component19) {
+    function MaterialRadio() {
+        _classCallCheck(this, MaterialRadio);
+
+        _get(Object.getPrototypeOf(MaterialRadio.prototype), 'constructor', this).apply(this, arguments);
+    }
+
+    _inherits(MaterialRadio, _React$Component19);
+
+    _createClass(MaterialRadio, [{
+        key: 'render',
+        value: function render() {
+            var classList = React.addons.classSet({
+                'mdl-radio': true,
+                'mdl-js-radio': true,
+                'mdl-js-ripple-effect': this.props.ripple,
+                'is-disabled': this.props.disabled,
+                'is-checked': this.props.checked,
+                'is-upgraded': this.props.isUpgraded
+            });
+
+            var _props4 = this.props;
+            var children = _props4.children;
+
+            var props = _objectWithoutProperties(_props4, ['children']);
+
+            return React.createElement(
+                'label',
+                { className: classList, htmlFor: this.props.id },
+                React.createElement('input', _extends({}, props, { type: 'radio', className: 'mdl-radio__button' })),
+                React.createElement(
+                    'span',
+                    { className: 'mdl-radio__label' },
+                    children
+                )
+            );
+        }
+    }], [{
+        key: 'propTypes',
+        value: {
+            id: React.PropTypes.string.isRequired,
+            name: React.PropTypes.string,
+            value: React.PropTypes.string,
+            checked: React.PropTypes.bool,
+            disabled: React.PropTypes.bool,
+            isUpgraded: React.PropTypes.bool
+        },
+        enumerable: true
+    }]);
+
+    return MaterialRadio;
+})(React.Component);
+
+var MaterialSpinner = (function (_React$Component20) {
     function MaterialSpinner() {
         _classCallCheck(this, MaterialSpinner);
 
         _get(Object.getPrototypeOf(MaterialSpinner.prototype), 'constructor', this).apply(this, arguments);
     }
 
-    _inherits(MaterialSpinner, _React$Component17);
+    _inherits(MaterialSpinner, _React$Component20);
 
     _createClass(MaterialSpinner, [{
         key: 'render',
@@ -591,11 +734,7 @@ var MaterialSpinner = (function (_React$Component17) {
                 'mdl-spinner--single-color': this.props.singleColor
             });
 
-            return React.createElement(
-                'div',
-                _extends({}, this.props, { className: classList }),
-                this.props.children
-            );
+            return React.createElement('div', _extends({}, this.props, { className: classList }));
         }
     }], [{
         key: 'propTypes',
@@ -615,14 +754,14 @@ var MaterialSpinner = (function (_React$Component17) {
     return MaterialSpinner;
 })(React.Component);
 
-var MaterialSwitch = (function (_React$Component18) {
+var MaterialSwitch = (function (_React$Component21) {
     function MaterialSwitch() {
         _classCallCheck(this, MaterialSwitch);
 
         _get(Object.getPrototypeOf(MaterialSwitch.prototype), 'constructor', this).apply(this, arguments);
     }
 
-    _inherits(MaterialSwitch, _React$Component18);
+    _inherits(MaterialSwitch, _React$Component21);
 
     _createClass(MaterialSwitch, [{
         key: 'render',
@@ -636,10 +775,10 @@ var MaterialSwitch = (function (_React$Component18) {
                 'is-upgraded': this.props.isUpgraded
             });
 
-            var _props3 = this.props;
-            var children = _props3.children;
+            var _props5 = this.props;
+            var children = _props5.children;
 
-            var props = _objectWithoutProperties(_props3, ['children']);
+            var props = _objectWithoutProperties(_props5, ['children']);
 
             return React.createElement(
                 'label',
@@ -666,14 +805,14 @@ var MaterialSwitch = (function (_React$Component18) {
     return MaterialSwitch;
 })(React.Component);
 
-var MaterialTabs = (function (_React$Component19) {
+var MaterialTabs = (function (_React$Component22) {
     function MaterialTabs() {
         _classCallCheck(this, MaterialTabs);
 
         _get(Object.getPrototypeOf(MaterialTabs.prototype), 'constructor', this).apply(this, arguments);
     }
 
-    _inherits(MaterialTabs, _React$Component19);
+    _inherits(MaterialTabs, _React$Component22);
 
     _createClass(MaterialTabs, [{
         key: 'render',
@@ -697,14 +836,14 @@ var MaterialTabs = (function (_React$Component19) {
     return MaterialTabs;
 })(React.Component);
 
-var MaterialTabsBar = (function (_React$Component20) {
+var MaterialTabsBar = (function (_React$Component23) {
     function MaterialTabsBar() {
         _classCallCheck(this, MaterialTabsBar);
 
         _get(Object.getPrototypeOf(MaterialTabsBar.prototype), 'constructor', this).apply(this, arguments);
     }
 
-    _inherits(MaterialTabsBar, _React$Component20);
+    _inherits(MaterialTabsBar, _React$Component23);
 
     _createClass(MaterialTabsBar, [{
         key: 'render',
@@ -720,14 +859,14 @@ var MaterialTabsBar = (function (_React$Component20) {
     return MaterialTabsBar;
 })(React.Component);
 
-var MaterialTabsTab = (function (_React$Component21) {
+var MaterialTabsTab = (function (_React$Component24) {
     function MaterialTabsTab() {
         _classCallCheck(this, MaterialTabsTab);
 
         _get(Object.getPrototypeOf(MaterialTabsTab.prototype), 'constructor', this).apply(this, arguments);
     }
 
-    _inherits(MaterialTabsTab, _React$Component21);
+    _inherits(MaterialTabsTab, _React$Component24);
 
     _createClass(MaterialTabsTab, [{
         key: 'render',
@@ -750,14 +889,14 @@ var MaterialTabsTab = (function (_React$Component21) {
     return MaterialTabsTab;
 })(React.Component);
 
-var MaterialTabsPanel = (function (_React$Component22) {
+var MaterialTabsPanel = (function (_React$Component25) {
     function MaterialTabsPanel() {
         _classCallCheck(this, MaterialTabsPanel);
 
         _get(Object.getPrototypeOf(MaterialTabsPanel.prototype), 'constructor', this).apply(this, arguments);
     }
 
-    _inherits(MaterialTabsPanel, _React$Component22);
+    _inherits(MaterialTabsPanel, _React$Component25);
 
     _createClass(MaterialTabsPanel, [{
         key: 'render',
@@ -780,7 +919,69 @@ var MaterialTabsPanel = (function (_React$Component22) {
     return MaterialTabsPanel;
 })(React.Component);
 
-var MaterialCheckBoxUpgraded = (function (_React$Component23) {
+var MaterialTextField = (function (_React$Component26) {
+    function MaterialTextField() {
+        _classCallCheck(this, MaterialTextField);
+
+        _get(Object.getPrototypeOf(MaterialTextField.prototype), 'constructor', this).apply(this, arguments);
+    }
+
+    _inherits(MaterialTextField, _React$Component26);
+
+    _createClass(MaterialTextField, [{
+        key: 'render',
+        value: function render() {
+            var classList = React.addons.classSet({
+                'mdl-textfield': true,
+                'mdl-js-textfield': true,
+                'mdl-textfield--floating-label': this.props.floatingLabel,
+                'is-upgraded': this.props.isUpgraded
+            });
+
+            var _props6 = this.props;
+            var children = _props6.children;
+            var errorMessage = _props6.errorMessage;
+
+            var props = _objectWithoutProperties(_props6, ['children', 'errorMessage']);
+
+            var error = this.props.pattern !== 'undefined' ? React.createElement(
+                'span',
+                { className: 'mdl-textfield__error' },
+                errorMessage
+            ) : null;
+
+            return React.createElement(
+                'div',
+                { className: classList },
+                React.createElement('input', _extends({}, props, { className: 'mdl-textfield__input', type: 'text', id: this.props.id })),
+                React.createElement(
+                    'label',
+                    { className: 'mdl-textfield__label', htmlFor: this.props.id },
+                    children
+                ),
+                error
+            );
+        }
+    }], [{
+        key: 'propTypes',
+        value: {
+            id: React.PropTypes.string.isRequired,
+            pattern: React.PropTypes.string,
+            errorMessage: React.PropTypes.string,
+            floatingLabel: React.PropTypes.bool,
+            isUpgraded: React.PropTypes.bool
+        },
+        enumerable: true
+    }, {
+        key: 'defaultProps',
+        value: {},
+        enumerable: true
+    }]);
+
+    return MaterialTextField;
+})(React.Component);
+
+var MaterialCheckBoxUpgraded = (function (_React$Component27) {
     function MaterialCheckBoxUpgraded(props) {
         _classCallCheck(this, MaterialCheckBoxUpgraded);
 
@@ -843,7 +1044,7 @@ var MaterialCheckBoxUpgraded = (function (_React$Component23) {
         };
     }
 
-    _inherits(MaterialCheckBoxUpgraded, _React$Component23);
+    _inherits(MaterialCheckBoxUpgraded, _React$Component27);
 
     _createClass(MaterialCheckBoxUpgraded, [{
         key: 'render',
